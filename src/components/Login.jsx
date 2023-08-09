@@ -52,7 +52,11 @@ export default function Login() {
   console.log('formSuccess ===', formSuccess);
   return (
     <div>
-      <h2 className='errorMsg'>{errorMsg}</h2>
+      {/* negeneruoti elemnto jei nera klaidos */}
+      {/* {errorMsg !== '' && <h2 className='errorMsg'>{errorMsg}</h2>} */}
+      {errorMsg.length > 0 && <h2 className='errorMsg'>{errorMsg}</h2>}
+      {/* {Boolean(errorMsg.length) && <h2 className='errorMsg'>{errorMsg}</h2>} */}
+
       {!formSuccess && (
         <form onSubmit={handleSubmit}>
           <div>
