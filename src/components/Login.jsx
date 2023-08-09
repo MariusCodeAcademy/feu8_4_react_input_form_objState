@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 const correctEmail = 'James@bond.com';
-const correctPass = 'secret123';
+// const correctPass = 'secret123';
 
 export default function Login() {
   const [emailVal, setEmailVal] = useState('');
