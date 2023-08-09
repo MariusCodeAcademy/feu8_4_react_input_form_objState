@@ -2,11 +2,15 @@ import { useState } from 'react';
 
 export default function Login() {
   const [emailVal, setEmailVal] = useState('');
+  const [passwVal, setPasswVal] = useState('');
   /**
    * @param {InputEvent} event
    */
   function emailInput(event) {
     setEmailVal(event.target.value);
+  }
+  function paswInput(event) {
+    setPasswVal(event.target.value);
   }
   return (
     <div>
@@ -22,11 +26,17 @@ export default function Login() {
         </div>
         <div>
           <label>Password:</label>
-          <input type='password' name='password' />
+          <input
+            onChange={paswInput}
+            value={passwVal}
+            type='password'
+            name='password'
+          />
         </div>
         <button type='submit'>Login</button>
       </form>
       <h3>Email: {emailVal}</h3>
+      <h3>Password: {passwVal}</h3>
     </div>
   );
 }
