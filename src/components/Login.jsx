@@ -7,6 +7,7 @@ export default function Login() {
   const [emailVal, setEmailVal] = useState('');
   const [passwVal, setPasswVal] = useState('');
   const [formSuccess, setFormSuccess] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
   /**
    * @param {InputEvent} event
@@ -21,6 +22,8 @@ export default function Login() {
    * @param {SubmitEvent} event
    */
   function handleSubmit(event) {
+    // issivalom klaidas
+    setErrorMsg('');
     // sustabdom puslapi nuo perkrovimo
     event.preventDefault();
     console.log('submit');
@@ -34,6 +37,11 @@ export default function Login() {
       return;
     }
     // patikrinti ar sutampa email (turetu buti nesvarbu dizioji ar mazoji raides)
+    if (emailVal.trim() !== correctEmail) {
+      console.log('patikrinkite email arba pass');
+      setErrorMsg('patikrinkite email arba pass');
+      return;
+    }
     // patikrinti ar sutampa password
     // jei nesutampa tai consolinam klaida
     // jei nesutampa atvaizduojam klaida <h2 className="errorMsg"></h2>
@@ -44,7 +52,7 @@ export default function Login() {
   console.log('formSuccess ===', formSuccess);
   return (
     <div>
-      <h2 className='errorMsg'></h2>
+      <h2 className='errorMsg'>{errorMsg}</h2>
       {!formSuccess && (
         <form onSubmit={handleSubmit}>
           <div>
