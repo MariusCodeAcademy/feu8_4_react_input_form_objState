@@ -29,6 +29,8 @@ export default function Todo() {
     setMainTodoArr(filtered);
   }
 
+  // handleAddTodo
+
   return (
     <div>
       <h2>Todo list</h2>
