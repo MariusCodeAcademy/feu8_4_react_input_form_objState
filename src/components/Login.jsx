@@ -12,9 +12,17 @@ export default function Login() {
   function paswInput(event) {
     setPasswVal(event.target.value);
   }
+  /**
+   * @param {SubmitEvent} event
+   */
+  function handleSubmit(event) {
+    // sustabdom puslapi nuo perkrovimo
+    event.preventDefault();
+    console.log('submit');
+  }
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <label>Email:</label>
           <input
