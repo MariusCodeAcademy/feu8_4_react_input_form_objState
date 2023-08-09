@@ -33,8 +33,10 @@ export default function Login() {
       console.log('Abu laukai privalomi');
       return;
     }
-    // patikrinti ar sutampa email
+    // patikrinti ar sutampa email (turetu buti nesvarbu dizioji ar mazoji raides)
     // patikrinti ar sutampa password
+    // jei nesutampa tai consolinam klaida
+    // jei nesutampa atvaizduojam klaida <h2 className="errorMsg"></h2>
     // jei viskas gerai - sekmes atvejis
     console.log('---Sekme---');
     setFormSuccess(true);
@@ -42,6 +44,7 @@ export default function Login() {
   console.log('formSuccess ===', formSuccess);
   return (
     <div>
+      <h2 className='errorMsg'></h2>
       {!formSuccess && (
         <form onSubmit={handleSubmit}>
           <div>
