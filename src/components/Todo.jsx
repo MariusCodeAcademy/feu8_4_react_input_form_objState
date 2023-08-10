@@ -31,14 +31,18 @@ export default function Todo() {
 
   // handleAddTodo
 
+  const mainArrayEmpty = mainTodoArr.length === 0;
+
   return (
     <div>
       <h2>Todo list</h2>
+
       <fieldset>
         <legend>Add Todo</legend>
         <input type='text' placeholder='new todo' />
         <button>Add</button>
       </fieldset>
+      {mainArrayEmpty && <h2>Nera nei vieno todo, pridekite nauja</h2>}
       <ul>
         {mainTodoArr.map((tObj) => (
           <li key={tObj.id}>
