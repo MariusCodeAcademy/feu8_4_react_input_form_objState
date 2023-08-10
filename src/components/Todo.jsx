@@ -20,6 +20,11 @@ Labai svarbu!!! Nemodifikuoti mainTodoArr
 
 export default function Todo() {
   const [mainTodoArr, setMainTodoArr] = useState(initTodos);
+  const [newTodoTitle, setNewTodoTitle] = useState('');
+
+  function inputTodo(event) {
+    setNewTodoTitle(event.target.value);
+  }
 
   function handleDelete(idToDelete) {
     console.log('lets delete', idToDelete);
@@ -27,9 +32,15 @@ export default function Todo() {
     const filtered = mainTodoArr.filter((tObj) => tObj.id !== idToDelete);
     // console.table(filtered);
     setMainTodoArr(filtered);
+    // setMainTodoArr((prevTodoArr) => prevTodoArr.filter((tObj) => tObj.id !== idToDelete))
   }
 
   // handleAddTodo
+  function handleAddTodo() {
+    // paimti input reiksme
+    // sukurti nauja todoObj
+    // atnaujinti state su tuo todoObj nekeician tiesiogiai mainTodoArr
+  }
 
   const mainArrayEmpty = mainTodoArr.length === 0;
 
@@ -39,7 +50,12 @@ export default function Todo() {
 
       <fieldset>
         <legend>Add Todo</legend>
-        <input type='text' placeholder='new todo' />
+        <input
+          onChange={inputTodo}
+          value={newTodoTitle}
+          type='text'
+          placeholder='new todo'
+        />
         <button>Add</button>
       </fieldset>
       {mainArrayEmpty && <h2>Nera nei vieno todo, pridekite nauja</h2>}

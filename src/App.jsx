@@ -10,8 +10,8 @@ export default function App() {
       <h1>I am new App</h1>
       {false && <InputBlock />}
       {false && <Login />}
-      {false && <Todo />}
-      <Counter />
+      {true && <Todo />}
+      {false && <Counter />}
     </div>
   );
 }
