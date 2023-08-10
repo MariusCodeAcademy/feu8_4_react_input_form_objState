@@ -43,12 +43,9 @@ export default function Todo() {
     const newTodoObj = { id: newId, title: newTodoTitle, isDone: false };
     console.log('newTodoObj ===', newTodoObj);
     // atnaujinti state su tuo todoObj nekeician tiesiogiai mainTodoArr
-    // pasidarem sekle kopija
-    const mainTodoArrCopy = mainTodoArr.slice();
-    // kopija modifikavom su nauju obj
-    mainTodoArrCopy.push(newTodoObj);
-    // atnaujinam mainTodoArr su funkcija paduodami nauja masyva su pridetu nauju tObj
-    setMainTodoArr(mainTodoArrCopy);
+
+    // atnaujinam mainTodoArr su setMainTodoArr paduodami nauja masyva su pridetu nauju tObj
+    setMainTodoArr([...mainTodoArr, newTodoObj]);
   }
 
   const mainArrayEmpty = mainTodoArr.length === 0;
@@ -71,7 +68,7 @@ export default function Todo() {
       <ul>
         {mainTodoArr.map((tObj) => (
           <li key={tObj.id}>
-            <span className=''>{tObj.title}</span>
+            <span className=''>{tObj.title}</span>{' '}
             <button onClick={() => handleDelete(tObj.id)}>Delete</button>
           </li>
         ))}
