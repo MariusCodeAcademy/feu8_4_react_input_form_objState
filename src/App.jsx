@@ -1,3 +1,4 @@
+import Counter from './components/Counter';
 import InputBlock from './components/InputBlock';
 import Login from './components/Login';
 import Todo from './components/Todo';
@@ -9,7 +10,8 @@ export default function App() {
       <h1>I am new App</h1>
       {false && <InputBlock />}
       {false && <Login />}
-      <Todo />
+      {false && <Todo />}
+      <Counter />
     </div>
   );
 }
