@@ -56,13 +56,17 @@ export default function Todo() {
       // surandam elementa
       if (tObj.id === idToToggle) {
         /// radom
-        console.log('radom', tObj);
+        // console.log('radom', tObj);
         // pakeisti jo kopijos isDone i priesinga
         // grazinti kopija
+        // pasidarom kopija ir esama isDone keiciam i priesinga jam
+        return { ...tObj, isDone: !tObj.isDone };
       }
       // neradom
       // grazinam ta pati el
+      return tObj;
     });
+    setMainTodoArr(pakeistasArr);
   }
 
   const mainArrayEmpty = mainTodoArr.length === 0;
