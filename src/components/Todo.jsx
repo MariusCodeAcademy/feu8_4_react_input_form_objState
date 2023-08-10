@@ -47,6 +47,23 @@ export default function Todo() {
     // atnaujinam mainTodoArr su setMainTodoArr paduodami nauja masyva su pridetu nauju tObj
     setMainTodoArr([...mainTodoArr, newTodoObj]);
   }
+  // handleToggleTodo
+  function handleToggleTodo(idToToggle) {
+    console.log('handleToggleTodo', idToToggle);
+    // konkreciam, tam ant kurio paspaudem
+    // pakeisti isDone i priesinga (nekeician orginalo)
+    const pakeistasArr = mainTodoArr.map((tObj) => {
+      // surandam elementa
+      if (tObj.id === idToToggle) {
+        /// radom
+        console.log('radom', tObj);
+        // pakeisti jo kopijos isDone i priesinga
+        // grazinti kopija
+      }
+      // neradom
+      // grazinam ta pati el
+    });
+  }
 
   const mainArrayEmpty = mainTodoArr.length === 0;
 
@@ -68,7 +85,13 @@ export default function Todo() {
       <ul>
         {mainTodoArr.map((tObj) => (
           <li key={tObj.id}>
-            <span className=''>{tObj.title}</span>{' '}
+            <span
+              onClick={() => handleToggleTodo(tObj.id)}
+              className={tObj.isDone ? 'finished pointer' : 'pointer'}
+              role='button'
+            >
+              {tObj.title}
+            </span>{' '}
             <button onClick={() => handleDelete(tObj.id)}>Delete</button>
           </li>
         ))}

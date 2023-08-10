@@ -8,3 +8,12 @@
 /* .errorMsg:empty {
   display: none;
 } */
+
+.finished {
+  color: gray;
+  text-decoration: line-through;
+}
+.pointer {
+  cursor: pointer;
+  font-size: 18px;
+}
