@@ -38,8 +38,17 @@ export default function Todo() {
   // handleAddTodo
   function handleAddTodo() {
     // paimti input reiksme
-    // sukurti nauja todoObj
+    // sukurti nauja todoObjasdasdasdasd
+    const newId = Math.random().toString().slice(4, 9);
+    const newTodoObj = { id: newId, title: newTodoTitle, isDone: false };
+    console.log('newTodoObj ===', newTodoObj);
     // atnaujinti state su tuo todoObj nekeician tiesiogiai mainTodoArr
+    // pasidarem sekle kopija
+    const mainTodoArrCopy = mainTodoArr.slice();
+    // kopija modifikavom su nauju obj
+    mainTodoArrCopy.push(newTodoObj);
+    // atnaujinam mainTodoArr su funkcija paduodami nauja masyva su pridetu nauju tObj
+    setMainTodoArr(mainTodoArrCopy);
   }
 
   const mainArrayEmpty = mainTodoArr.length === 0;
@@ -56,7 +65,7 @@ export default function Todo() {
           type='text'
           placeholder='new todo'
         />
-        <button>Add</button>
+        <button onClick={handleAddTodo}>Add</button>
       </fieldset>
       {mainArrayEmpty && <h2>Nera nei vieno todo, pridekite nauja</h2>}
       <ul>
